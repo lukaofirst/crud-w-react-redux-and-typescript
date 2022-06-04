@@ -1,32 +1,23 @@
 import { Button, FormControl, TextField } from '@mui/material';
-import {
-    ChangeEvent,
-    MouseEvent,
-    useContext,
-    useEffect,
-    useState,
-} from 'react';
-import { Context } from '../context/Context';
+import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../hooks/hooks';
+import { addTask, updateTask } from '../hooks/taskSlice';
 import { Task } from '../mockData/tasksData';
 
 const TaskForm = () => {
-    const {
-        addTask,
-        tasks,
-        task: singleTask,
-        updateTask,
-    } = useContext(Context);
+    const { tasks, currentTask } = useAppSelector((state) => state.task);
+    const dispatch = useAppDispatch();
 
     const [task, setTask] = useState<string>('');
     const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
     // note2.: Here, you need to perform a side effect, because that will 'spread' to form's component
     useEffect(() => {
-        if (singleTask.edit) {
+        if (currentTask.edit) {
             setIsDisabled(false);
-            setTask(singleTask.task.message);
+            setTask(currentTask.task.message);
         }
-    }, [singleTask]);
+    }, [currentTask]);
 
     const handleSubmit = (e: MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -38,10 +29,12 @@ const TaskForm = () => {
 
         if (task.trim().length > 0) {
             // note4.: Finally, you need to check what method will run
-            if (singleTask.edit) {
-                updateTask(singleTask.task.id, newTask);
+            if (currentTask.edit) {
+                dispatch(
+                    updateTask({ id: currentTask.task.id, updTask: newTask })
+                );
             } else {
-                addTask(newTask);
+                dispatch(addTask(newTask));
             }
 
             setTask('');

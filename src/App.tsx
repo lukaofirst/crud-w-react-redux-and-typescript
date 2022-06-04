@@ -1,11 +1,12 @@
 import { Box, Container, Typography } from '@mui/material';
+import { Provider } from 'react-redux';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
-import ContextProvider from './context/Context';
+import { store } from './store/store';
 
 function App() {
     return (
-        <ContextProvider>
+        <Provider store={store}>
             <Container maxWidth='md'>
                 <Typography
                     variant='h4'
@@ -25,7 +26,7 @@ function App() {
                     <TaskList />
                 </Box>
             </Container>
-        </ContextProvider>
+        </Provider>
     );
 }
 

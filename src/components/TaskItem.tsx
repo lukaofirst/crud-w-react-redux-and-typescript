@@ -2,17 +2,30 @@ import { Paper, Typography, Box, Button } from '@mui/material';
 import { Task } from '../mockData/tasksData';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useContext } from 'react';
-import { Context } from '../context/Context';
+import { useAppDispatch } from '../hooks/hooks';
+import { deleteTask, editTask } from '../hooks/taskSlice';
 
 interface ITaskItem {
     task: Task;
 }
 
 const TaskItem = ({ task }: ITaskItem) => {
-    const { editTask, deleteTask } = useContext(Context);
+    const dispatch = useAppDispatch();
 
     const { id, message } = task;
+
+    const handleEdit = () => {
+        dispatch(
+            editTask({
+                edit: true,
+                task,
+            })
+        );
+    };
+
+    const handleDelete = () => {
+        dispatch(deleteTask(id));
+    };
 
     return (
         <Paper
@@ -32,14 +45,14 @@ const TaskItem = ({ task }: ITaskItem) => {
                 {message}
             </Typography>
             <Box marginRight={1}>
-                <Button onClick={() => editTask({ edit: true, task })}>
+                <Button onClick={handleEdit}>
                     <EditIcon
                         sx={{
                             color: 'rgba(0,0,0,0.5)',
                         }}
                     />
                 </Button>
-                <Button onClick={() => deleteTask(id)}>
+                <Button onClick={handleDelete}>
                     <DeleteIcon
                         sx={{
                             color: 'rgba(0,0,0,0.5)',

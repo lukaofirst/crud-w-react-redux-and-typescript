@@ -1,10 +1,10 @@
 import { Typography } from '@mui/material';
-import { useContext } from 'react';
-import { Context } from '../context/Context';
+import { useAppSelector } from '../hooks/hooks';
 import TaskItem from './TaskItem';
 
 const TaskList = () => {
-    const { tasks } = useContext(Context);
+    const { tasks } = useAppSelector((state) => state.task);
+
     return (
         <>
             <Typography variant='h5' marginTop={3} color='primary'>

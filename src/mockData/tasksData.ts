@@ -8,6 +8,11 @@ export interface EditTask {
     task: Task;
 }
 
+export interface UpdateTask {
+    id: number;
+    updTask: Task;
+}
+
 const tasksData: Task[] = [
     {
         id: 1,
