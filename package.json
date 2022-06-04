@@ -1,5 +1,5 @@
 {
-    "name": "crud-w-react-and-typescript",
+    "name": "crud-w-react-redux-and-typescript",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
