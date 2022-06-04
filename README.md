@@ -1,5 +1,7 @@
 <h2>CRUD with React, Redux & TypeScript</h2>
 
+Live Project: [CRUD with React, Redux & TypeScript](https://crud-w-react-redux-and-typescript.vercel.app/)
+
 <h2><img src='https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/36/country-4x3/us.png'/> ENG</h2>
 
 -   Personal project where you can perform CRUD (Create, Read, Update, Delete) operations with To-do Tasks
