@@ -19,7 +19,7 @@ const TaskItem = ({ task }: ITaskItem) => {
             key={id}
             elevation={2}
             sx={{
-                width: '60%',
+                width: '100%',
                 py: 2,
                 my: 1,
                 display: 'flex',
@@ -28,7 +28,11 @@ const TaskItem = ({ task }: ITaskItem) => {
                 flexDirection: 'row',
             }}
         >
-            <Typography textAlign='left' marginLeft={3}>
+            <Typography
+                textAlign='left'
+                marginLeft={3}
+                sx={{ width: '55%', wordBreak: 'break-all' }}
+            >
                 {message}
             </Typography>
             <Box marginRight={1}>

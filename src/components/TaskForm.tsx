@@ -63,7 +63,7 @@ const TaskForm = () => {
         <FormControl
             onSubmit={handleSubmit}
             component='form'
-            sx={{ width: '60%' }}
+            sx={{ width: '100%' }}
         >
             <TextField
                 id='task'

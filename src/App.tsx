@@ -6,7 +6,7 @@ import ContextProvider from './context/Context';
 function App() {
     return (
         <ContextProvider>
-            <Container maxWidth='md'>
+            <Container maxWidth='sm'>
                 <Typography
                     variant='h4'
                     textAlign='center'
