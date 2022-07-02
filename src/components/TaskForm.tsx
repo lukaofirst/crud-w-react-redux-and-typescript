@@ -1,7 +1,7 @@
 import { Button, FormControl, TextField } from '@mui/material';
 import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
-import { addTask, updateTask } from '../hooks/taskSlice';
+import { addTask, updateTask } from '../store/slices/taskSlice';
 import { Task } from '../mockData/tasksData';
 
 const TaskForm = () => {
@@ -56,7 +56,7 @@ const TaskForm = () => {
         <FormControl
             onSubmit={handleSubmit}
             component='form'
-            sx={{ width: '60%' }}
+            sx={{ width: '100%' }}
         >
             <TextField
                 id='task'

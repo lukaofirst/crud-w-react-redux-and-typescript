@@ -7,7 +7,7 @@ import { store } from './store/store';
 function App() {
     return (
         <Provider store={store}>
-            <Container maxWidth='md'>
+            <Container maxWidth='sm'>
                 <Typography
                     variant='h4'
                     textAlign='center'

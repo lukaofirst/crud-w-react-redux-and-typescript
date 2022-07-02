@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import tasksData, { EditTask, Task, UpdateTask } from '../mockData/tasksData';
+import tasksData, {
+    Task,
+    EditTask,
+    UpdateTask,
+} from '../../mockData/tasksData';
 
 interface ITaskState {
     tasks: Task[];
